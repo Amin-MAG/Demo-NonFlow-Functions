@@ -1,0 +1,9 @@
+version: 1.0
+provider:
+  name: openfaas
+  gateway: https://gateway-openfaas.aminmag.ir
+functions:
+  hello-world:
+    lang: golang-middleware
+    handler: ./hello-world
+    image: ragnacode/hello-world-nonflow:0.1.0

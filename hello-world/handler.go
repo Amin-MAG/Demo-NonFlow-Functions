@@ -29,10 +29,20 @@ func Handle(w http.ResponseWriter, r *http.Request) {
 		_, _ = w.Write([]byte(fmt.Sprintf("error: %s", err.Error())))
 		return
 	}
+	if input.Name == nil {
+		w.WriteHeader(http.StatusBadRequest)
+		_, _ = w.Write([]byte("name is empty"))
+		return
+	}
 
 	message := Message{Text: fmt.Sprintf("Hello %s!", *input.Name)}
 
 	outputByte, err := json.Marshal(message)
+	if err != nil {
+		w.WriteHeader(http.StatusBadRequest)
+		_, _ = w.Write([]byte(fmt.Sprintf("error: %s", err.Error())))
+		return
+	}
 
 	w.WriteHeader(http.StatusOK)
 	w.Header().Set("Content-Type", "application/json")

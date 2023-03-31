@@ -3,7 +3,7 @@ provider:
   name: openfaas
   gateway: https://gateway-openfaas.aminmag.ir
 functions:
-  hello-world-nonflow:
+  last-ride-nonflow:
     lang: golang-middleware
-    handler: ./hello-world
-    image: ragnacode/hello-world-nonflow:0.1.0
+    handler: ./last-ride
+    image: ragnacode/last-ride-nonflow:0.1.0

@@ -6,4 +6,4 @@ functions:
   user-info-nonflow:
     lang: golang-middleware
     handler: ./user-info
-    image: ragnacode/user-info-nonflow:0.1.0
+    image: ragnacode/user-info-nonflow:0.1.1
